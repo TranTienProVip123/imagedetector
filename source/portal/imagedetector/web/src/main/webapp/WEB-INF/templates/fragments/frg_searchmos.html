@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Result</title>
+</head>
+<body>
+    <form id="frm_searchmos" action="searchmos/upload" method="POST" enctype="multipart/form-data">
+        <div>
+            <div class="Mrphs-toolTitleNav_button_container">
+                <input name="attachment" class="input-file" type="file" id="attachment"/>
+                <span>Upload an image file or ZIP file from your computer (<100MBs)</span>
+            </div>
+            <nav class="Mrphs-toolTitleNav Mrphs-container--toolTitleNav" aria-label="Tool navigation">
+                <button id="btnSave" class="btn btn-primary" disabled="true">Export</button>
+            </nav>
+        </div>
+        <div>
+            <p id="resulText"></p>
+        </div>
+    </form>
+    <div class="col-8">
+        <div th:if="${ncount > 0}">
+            <div th:each="image: ${detection.images}">
+                <img th:src="@{'data:image/jpeg:base64, '+${image}}" alt="Upload Image"/>
+            </div>
+            <div class="alert alert-success">
+                <span th:text="${detection.infos[0].classname}"></span>;
+                <span th:text="${detection.infos[0].confidence}"></span>
+            </div>
+            <img th:src="@{'data:image/jpeg:base64,'+${detection.image[0]}}" alt="No mosquito" >
+        </div>
+        <div th:if="${ncount == 0}">
+            <div class="alert alert-danger">
+                <strong>Result:</strong> No mosquito found!
+            </div>
+        </div>
+    </div>
+</body>
+</html>

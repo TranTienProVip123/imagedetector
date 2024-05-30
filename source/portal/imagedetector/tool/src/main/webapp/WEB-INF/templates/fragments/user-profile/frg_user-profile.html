@@ -1,0 +1,26 @@
+    <H3>User Profile</H3>
+    
+    <form id="frm_user_profile" class="container" method="post">
+      <div class="form-group">
+        <label for="email1">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">Working email.</small>
+      </div>
+      <div class="form-group">
+      <section class="row">
+          <article class="col col-6">
+            <label for="name">Name</label>
+            <input name="name" type="text" class="form-control" placeholder="Enter name">
+          </article>
+          <article class="col col-6">
+            <label for="department">Department</label>
+            <input type="text" class="form-control" id="department" placeholder="Enter department">
+          </article>
+      </section>
+      </div>
+      <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" id="bio" rows="3"></textarea>
+      </div>
+      <button id="btn_save" type="submit" class="btn btn-primary">Submit</button>
+    </form>

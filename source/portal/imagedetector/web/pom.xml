@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Remove the parent element -->
+
+    <groupId>org.sakaiproject.tool.imagedetector</groupId>
+    <artifactId>imagedetector-controller</artifactId> <!-- Sửa thành imagedetector-web -->
+    <version>23.0</version>
+    <packaging>jar</packaging> <!-- Sửa thành war -->
+
+    <dependencies>
+        <!-- Sub-project dependencies -->
+        <dependency>
+            <groupId>org.sakaiproject.tool.imagedetector</groupId>
+            <artifactId>imagedetector-api</artifactId>
+            <version>23.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sakaiproject.tool.imagedetector</groupId>
+            <artifactId>imagedetector-common</artifactId>
+            <version>23.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sakaiproject.tool.imagedetector</groupId>
+            <artifactId>imagedetector-impl</artifactId>
+            <version>23.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Spring libraries -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId> <!-- Thêm dependency cho Spring Security -->
+            <artifactId>spring-security-core</artifactId>
+            <version>5.5.1</version> <!-- Sửa thành phiên bản tương thích -->
+        </dependency>
+
+        <!-- Spring WebFlux for WebClient -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <version>2.7.1</version>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+			   <groupId>commons-fileupload</groupId>
+			   <artifactId>commons-fileupload</artifactId>
+			   <version>1.4</version> <!-- makesure correct version here -->
+		</dependency>
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>sakaiproject</id>
+            <url>https://source.sakaiproject.org/maven2</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
